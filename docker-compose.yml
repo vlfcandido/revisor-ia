@@ -1,0 +1,35 @@
+# ──────────────────────────────────────────────────────────────
+# Docker Compose — PostgreSQL com pgvector
+#
+# Sobe um banco PostgreSQL local com a extensão pgvector
+# instalada. Isso permite armazenar e buscar embeddings
+# diretamente no banco usando busca vetorial (similarity search).
+#
+# Uso:
+#   docker compose up -d       ← sobe o banco em background
+#   docker compose down        ← derruba o banco
+#   docker compose down -v     ← derruba + apaga dados
+# ──────────────────────────────────────────────────────────────
+
+services:
+  # Banco PostgreSQL com pgvector pré-instalado
+  postgres:
+    image: pgvector/pgvector:pg16     # imagem oficial do pgvector
+    container_name: revisor-ia-db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: revisor          # usuário do banco
+      POSTGRES_PASSWORD: revisor123   # senha (só pra dev local!)
+      POSTGRES_DB: revisor_ia         # nome do banco
+
+    ports:
+      - "5432:5432"                   # expõe na porta padrão
+
+    volumes:
+      - pgdata:/var/lib/postgresql/data   # persiste dados entre restarts
+
+# Volume nomeado — dados sobrevivem a `docker compose down`
+# Pra apagar tudo: `docker compose down -v`
+volumes:
+  pgdata:

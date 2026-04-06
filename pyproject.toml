@@ -1,0 +1,54 @@
+[project]
+name = "revisor-ia"
+version = "0.1.0"
+description = "Revisor de Código com IA — projeto de estudo"
+requires-python = ">=3.11"
+
+# ──────────────────────────────────────────────────────────────
+# DEPENDÊNCIAS
+# Cada lib está comentada com o motivo de estar aqui.
+# ──────────────────────────────────────────────────────────────
+dependencies = [
+    # --- Web Framework (View do MVC) ---
+    "fastapi>=0.115.0",           # API REST moderna e rápida
+    "uvicorn[standard]>=0.30.0",  # servidor ASGI pra rodar o FastAPI
+
+    # --- LLM / Agentes ---
+    "langchain>=0.3.0",           # framework base pra LLM apps
+    "langchain-ollama>=0.2.0",    # integração LangChain ↔ Ollama
+    "langgraph>=0.2.0",           # grafo de estados pra agentes
+
+    # --- Banco de Dados ---
+    "sqlalchemy>=2.0.0",          # ORM (Model do MVC)
+    "asyncpg>=0.30.0",            # driver async pra PostgreSQL
+    "pgvector>=0.3.0",            # extensão pgvector pro SQLAlchemy
+
+    # --- Validação / Config ---
+    "pydantic>=2.0.0",            # schemas e validação de dados
+    "pydantic-settings>=2.0.0",   # carregar .env automaticamente
+
+    # --- MCP (Model Context Protocol) ---
+    "mcp>=1.0.0",                 # SDK pra criar/consumir MCP servers
+
+    # --- Observabilidade & Avaliação ---
+    "langsmith>=0.1.0",           # tracing e monitoramento de LLM apps
+    "ragas>=0.2.0",               # avaliação de qualidade de RAG
+    "deepeval>=1.0.0",            # framework de testes pra LLM apps
+
+    # --- Utilitários ---
+    "httpx>=0.27.0",              # cliente HTTP async (pra Ollama)
+    "python-dotenv>=1.0.0",       # carregar variáveis do .env
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",              # framework de testes
+    "pytest-asyncio>=0.24.0",     # suporte async nos testes
+]
+
+[tool.setuptools.packages.find]
+include = ["modelos*", "controladores*", "visoes*", "agentes*", "mcp_servidor*", "mcp_cliente*", "rag*", "banco*", "observabilidade*", "avaliacao*"]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"

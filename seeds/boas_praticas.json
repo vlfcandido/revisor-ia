@@ -1,0 +1,82 @@
+[
+  {
+    "texto": "Use nomes descritivos para variáveis e funções. O nome deve comunicar claramente o propósito. Evite abreviações como 'x', 'tmp', 'aux'. Prefira 'total_vendas', 'nome_cliente', 'calcular_imposto'. Código é lido muito mais vezes do que escrito.",
+    "fonte": "clean_code"
+  },
+  {
+    "texto": "Funções devem fazer uma única coisa e fazer bem feito (Single Responsibility). Se uma função faz mais de uma coisa, divida em funções menores. Cada função deve ter um nível de abstração consistente.",
+    "fonte": "solid"
+  },
+  {
+    "texto": "Evite comentários óbvios que repetem o código. Bons comentários explicam o 'porquê', não o 'quê'. O código deve ser autoexplicativo. Se precisa de comentário pra explicar, considere renomear variáveis ou extrair funções.",
+    "fonte": "clean_code"
+  },
+  {
+    "texto": "Trate erros de forma explícita. Nunca use except genérico (bare except). Capture exceções específicas e trate cada uma adequadamente. Erros silenciosos são bugs esperando pra acontecer.",
+    "fonte": "clean_code"
+  },
+  {
+    "texto": "DRY (Don't Repeat Yourself): evite duplicação de código. Se o mesmo código aparece em mais de dois lugares, extraia pra uma função ou classe. Duplicação é a raiz de muitos bugs — corrige num lugar, esquece no outro.",
+    "fonte": "solid"
+  },
+  {
+    "texto": "KISS (Keep It Simple, Stupid): prefira a solução mais simples que resolve o problema. Código complexo é difícil de entender, testar e manter. Abstrações prematuras são piores que código duplicado.",
+    "fonte": "clean_code"
+  },
+  {
+    "texto": "Use type hints (tipagem) em Python. Tipos documentam o código, ajudam a IDE a detectar erros, e facilitam a manutenção. Exemplo: def calcular(valor: float, taxa: float) -> float.",
+    "fonte": "python"
+  },
+  {
+    "texto": "Escreva testes para código crítico. Testes unitários validam funções isoladas. Testes de integração validam o fluxo completo. Código sem testes é código que vai quebrar em silêncio.",
+    "fonte": "clean_code"
+  },
+  {
+    "texto": "Princípio Open/Closed: classes devem ser abertas para extensão, mas fechadas para modificação. Use herança, composição, ou strategy pattern pra adicionar comportamento sem alterar código existente.",
+    "fonte": "solid"
+  },
+  {
+    "texto": "Evite magic numbers (números mágicos). Use constantes nomeadas em vez de valores hardcoded. Em vez de 'if idade > 18', use 'IDADE_MINIMA = 18' e 'if idade > IDADE_MINIMA'.",
+    "fonte": "clean_code"
+  },
+  {
+    "texto": "Liskov Substitution: subclasses devem poder substituir suas classes base sem quebrar o programa. Se Pato herda de Ave, e Ave tem voar(), Pato precisa voar() ou o design está errado.",
+    "fonte": "solid"
+  },
+  {
+    "texto": "Dependency Inversion: dependa de abstrações, não de implementações concretas. Use interfaces ou classes abstratas. Isso facilita testes (mocking) e troca de implementações.",
+    "fonte": "solid"
+  },
+  {
+    "texto": "Funções devem ter no máximo 3-4 parâmetros. Se precisa de mais, agrupe em um objeto (dataclass ou Pydantic model). Muitos parâmetros indicam que a função faz coisas demais.",
+    "fonte": "clean_code"
+  },
+  {
+    "texto": "Use list comprehensions em Python quando a lógica é simples. Para lógicas complexas, prefira loops tradicionais. Legibilidade é mais importante que ser 'pythônico'.",
+    "fonte": "python"
+  },
+  {
+    "texto": "Sempre valide entrada de dados do usuário. Nunca confie em dados externos. Use Pydantic pra validação automática. SQL injection, XSS, e command injection são vulnerabilidades comuns por falta de validação.",
+    "fonte": "seguranca"
+  },
+  {
+    "texto": "Prefira composição sobre herança. Herança cria acoplamento forte entre classes. Composição (ter um objeto, não ser um objeto) é mais flexível e fácil de testar.",
+    "fonte": "solid"
+  },
+  {
+    "texto": "Docstrings em funções públicas são essenciais. Use o formato Google ou NumPy. Docstrings aparecem no help() e na IDE. Args, Returns, e Raises devem estar documentados.",
+    "fonte": "python"
+  },
+  {
+    "texto": "Logging é melhor que print() em produção. Use o módulo logging do Python com níveis (DEBUG, INFO, WARNING, ERROR). Logs estruturados facilitam monitoramento e debug.",
+    "fonte": "python"
+  },
+  {
+    "texto": "Interface Segregation: clientes não devem depender de métodos que não usam. Prefira interfaces pequenas e específicas a uma interface gigante. Isso mantém o código modular.",
+    "fonte": "solid"
+  },
+  {
+    "texto": "Use context managers (with statement) em Python pra gerenciar recursos como arquivos, conexões de banco, e locks. O with garante que o recurso é liberado mesmo se der erro.",
+    "fonte": "python"
+  }
+]
