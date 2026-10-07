@@ -3,6 +3,8 @@
 > Revisor de codigo com IA usando LangGraph, LangSmith, RAG com pgvector, MCP, e teste A/B.
 > **100% educacional** — todo o codigo tem comentarios explicando o que faz e por que.
 
+![Revisão de um arquivo Python com comentários por linha, nota do juiz e o caminho no grafo](docs/prints/revisor-ia.png)
+
 ---
 
 ## Problema
