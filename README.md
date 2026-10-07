@@ -5,6 +5,42 @@
 
 ---
 
+## Problema
+
+Revisar código à mão não escala e é inconsistente. Um revisor automático com LLM só vale
+a pena se der para **confiar** nele: medir se a sugestão é fiel ao código, se não
+alucina, e comparar estratégias de prompt com dado — não com achismo.
+
+## O que faz
+
+Recebe um trecho de código e devolve uma revisão apoiada em RAG sobre uma base de boas
+práticas (busca vetorial no pgvector). O fluxo é um grafo LangGraph com nós e arestas
+condicionais; um segundo LLM atua como juiz da qualidade (LLM-as-judge), e as métricas
+de RAG saem de Ragas e DeepEval. Feature flags ligam/desligam etapas sem redeploy, e o
+agente é exposto tanto por API FastAPI quanto por um servidor MCP.
+
+Cada módulo cobre, de propósito, um conceito de IA de produção — a tabela abaixo mapeia
+onde cada um vive.
+
+## Como rodar (resumo)
+
+```bash
+docker compose up -d           # PostgreSQL + pgvector e Ollama
+cp .env.example .env           # preencher as variaveis
+pip install -e .
+uvicorn visoes.api:app --reload
+pytest testes/ -v              # testes de esquemas, grafo e RAG
+```
+
+O setup completo está em [Setup Completo](#setup-completo).
+
+## Status
+
+Projeto de estudo, funcional módulo a módulo. Não é feito para produção — o objetivo é
+ser lido e rodado para aprender os conceitos.
+
+---
+
 ## O Que Este Projeto Ensina
 
 Este projeto foi criado pra aprender na pratica os conceitos mais demandados
