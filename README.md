@@ -80,6 +80,12 @@ e todos se conectam num fluxo real de code review com IA.
 
 ## Arquitetura
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/marca/diagrama-escuro.svg">
+  <img alt="Diagrama: o código entra pela API ou por MCP, passa por análise, busca boas práticas no pgvector, gera a revisão e um juiz dá a nota; abaixo de 7 a revisão é refeita" src="docs/marca/diagrama-claro.svg" width="100%">
+</picture>
+
+
 ```
 revisor-ia/
 │
