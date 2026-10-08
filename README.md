@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/marca/cabecalho-escuro.svg">
+  <img alt="revisor-ia" src="docs/marca/cabecalho-claro.svg" width="100%">
+</picture>
+
 # Revisor IA — Projeto de Estudo
 
 > Revisor de codigo com IA usando LangGraph, LangSmith, RAG com pgvector, MCP, e teste A/B.
